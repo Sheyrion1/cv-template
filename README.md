@@ -2,6 +2,8 @@
 
 Plantilla pública para un CV/portfolio web con efecto "Matrix", tema día/noche, consola de visitante y animaciones.
 
+🌐 **Demo:** [GitHub Pages](https://<tuusuario>.github.io/cv-web-template-matrix)
+
 **Author (template packaging & comments):** Facundo Camacho — facundo@flowit-ar.com
 
 > Nota: El contenido visible en la página es genérico / de ejemplo. Reemplaza los placeholders (YOUR_NAME, example@example.com, etc.) antes de publicar.
