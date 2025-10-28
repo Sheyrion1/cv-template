@@ -1,16 +1,16 @@
-// main.js
-// Packaged by Facundo Camacho - facundo@flowit-ar.com
+// main.js — Funciones de interacción
+// Creado por Facundo Camacho — facundo@flowit-ar.com
 
-// ==== Año automático en footer ====
+// Año automático
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ==== Efecto typewriter en el subtítulo del hero ====
-(function typewriter(){
+// Efecto Typewriter
+(function(){
   const el = document.querySelector('.typewriter');
   if (!el) return;
   const text = el.getAttribute('data-text') || '';
   let i = 0;
-  const speed = 35; // ms por letra
+  const speed = 35;
   const write = () => {
     el.textContent = text.slice(0, i++);
     if (i <= text.length) setTimeout(write, speed);
@@ -18,102 +18,56 @@ document.getElementById('year').textContent = new Date().getFullYear();
   write();
 })();
 
-// ==== Resalta enlace activo al hacer clic ====
-document.querySelectorAll('.nav nav a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', ()=>{
-    document.querySelectorAll('.nav nav a').forEach(x=>x.classList.remove('active'));
-    a.classList.add('active');
-  });
-});
-
-// ==== Fade-in on scroll ====
+// Fade-in al hacer scroll
 const faders = document.querySelectorAll('.fade');
-
-const appearOptions = {
-  threshold: 0.18,
-  rootMargin: "0px 0px -40px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-  entries.forEach(entry => {
+const appear = new IntersectionObserver((entries, obs)=>{
+  entries.forEach(entry=>{
     if (!entry.isIntersecting) return;
     entry.target.classList.add('visible');
-    observer.unobserve(entry.target);
+    obs.unobserve(entry.target);
   });
-}, appearOptions);
+},{threshold:0.2});
+faders.forEach(f=>appear.observe(f));
 
-faders.forEach(fade => {
-  appearOnScroll.observe(fade);
-});
-
-// ==== Theme toggle (día/noche) ====
+// Tema día/noche
 const themeBtn = document.getElementById('themeToggle');
 if (themeBtn) {
-  const userPref = localStorage.getItem('theme');
-  if (userPref === 'light') {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
     document.body.classList.add('light');
     themeBtn.textContent = '☀️';
   }
-
-  themeBtn.addEventListener('click', () => {
+  themeBtn.addEventListener('click',()=>{
     document.body.classList.toggle('light');
-    const isLight = document.body.classList.contains('light');
-    themeBtn.textContent = isLight ? '☀️' : '🌙';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-
-    // dispatch storage event for other tabs (optional)
-    try {
-      localStorage.setItem('theme-change', Date.now().toString());
-    } catch (e) {}
+    const light = document.body.classList.contains('light');
+    themeBtn.textContent = light ? '☀️' : '🌙';
+    localStorage.setItem('theme', light ? 'light' : 'dark');
   });
 }
 
-// ==== Visitor Console (robusta) ====
-(function setupVisitorConsole(){
+// Visitor Console
+(function(){
   const term = document.getElementById('terminalOutput');
-  const refreshBtn = document.getElementById('refreshConsole');
+  const btn = document.getElementById('refreshConsole');
   if (!term) return;
-
-  const log = msg => {
-    term.textContent += `\n${msg}`;
-    term.scrollTop = term.scrollHeight;
-  };
+  const log = msg => { term.textContent += `\n${msg}`; term.scrollTop = term.scrollHeight; };
 
   async function loadVisitorData(clear=false){
     if (clear) term.textContent = '';
     log("[ Visitor Console initialized... ]");
-
     try {
       const res = await fetch('https://api.ipify.org?format=json');
-      if (res.ok) {
-        const data = await res.json();
-        log(`Public IP: ${data.ip}`);
-      } else {
-        log("Public IP: unavailable");
-      }
-    } catch (err) {
-      log("Public IP: unavailable");
-    }
-
-    const agent = navigator.userAgent;
+      const data = await res.json();
+      log(`Public IP: ${data.ip}`);
+    } catch { log("Public IP: unavailable"); }
+    const agent = navigator.userAgent.split(')')[0] + ')';
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const lang = navigator.language || navigator.userLanguage;
-    const secure = location.protocol === "https:" ? "✅ Secure" : "⚠️ Not Secure";
-
-    // short agent (more readable)
-    const shortAgent = agent.split(')')[0] + ')';
-    log(`User Agent: ${shortAgent}`);
+    log(`User Agent: ${agent}`);
     log(`Timezone: ${tz}`);
-    log(`Language: ${lang}`);
-    log(`Connection: ${secure}`);
-
+    log(`Status: ${location.protocol === 'https:' ? '✅ Secure' : '⚠️ Not Secure'}`);
     log("[ Console ready. ]");
   }
 
-  // initial load (after small delay)
   setTimeout(()=>loadVisitorData(true), 800);
-
-  if (refreshBtn) {
-    refreshBtn.addEventListener('click', () => loadVisitorData(true));
-  }
+  btn?.addEventListener('click',()=>loadVisitorData(true));
 })();
