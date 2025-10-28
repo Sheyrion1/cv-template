@@ -1,9 +1,8 @@
 <!--
-  CV Web Template
-  Packaged & commented by: Facundo Camacho
-  Contact (author): facundo@flowit-ar.com
-  NOTE: This repo contains a public template. Visible demo content is generic.
-  Replace placeholders (YOUR_NAME, YOUR_EMAIL, etc.) before publishing.
+  CV Web Template (Matrix edition)
+  Created by Facundo Camacho — facundo@flowit-ar.com
+  Version: 2025.1 | Licencia MIT
+  Nota: Este proyecto es 100% editable. Reemplazá el contenido visible por tu información.
 -->
 
 <!DOCTYPE html>
@@ -11,31 +10,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YOUR_NAME · IT & InfoSec</title>
-  <meta name="description" content="Plantilla de CV web — ejemplo editable.">
-  <meta property="og:title" content="YOUR_NAME — IT & InfoSec" />
-  <meta property="og:description" content="Plantilla de CV web — ejemplo editable." />
+  <title>CV Web Template · Matrix Theme</title>
+  <meta name="description" content="Plantilla libre de CV web con fondo Matrix, tema día/noche y consola interactiva.">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Fondo Matrix -->
   <canvas id="matrix"></canvas>
 
-  <!-- Contenido -->
+  <!-- NAV -->
   <header class="nav">
     <div class="nav__inner">
-      <a href="#inicio" class="brand">YOUR<span>NAME</span></a>
-
+      <a href="#inicio" class="brand">Your<span>Name</span></a>
       <nav>
         <a href="#inicio">Inicio</a>
         <a href="#sobre-mi">Sobre mí</a>
         <a href="#stack">Stack</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#experiencia">Experiencia</a>
+        <a href="#clientes">Clientes</a>
         <a href="#contacto" class="cta">Contactar</a>
       </nav>
-
-      <!-- Theme toggle -->
       <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema">🌙</button>
     </div>
   </header>
@@ -45,29 +37,25 @@
     <section id="inicio" class="hero fade">
       <div class="hero__inner">
         <div class="badge">Infraestructura · Seguridad · Automatización</div>
-        <h1 class="hero__title">
-          <span class="cursor-line">YOUR NAME</span>
-        </h1>
-        <p class="hero__subtitle typewriter"
-           data-text="Administrator · InfoSec Analyst · Developer"></p>
-        <p class="muted" style="margin-top:10px;">
-          Plantilla de CV web para proyectos personales y profesionales. Editá contenido y recursos.
-        </p>
+        <h1 class="hero__title"><span class="cursor-line">Your Name</span></h1>
+        <p class="hero__subtitle typewriter" data-text="Administrador IT | InfoSec Analyst | Desarrollador Full Stack"></p>
+        <p class="muted">Especialista en infraestructura, ciberseguridad y automatización. Diseñá entornos estables, seguros y auto-recuperables para empresas.</p>
         <div class="hero__actions">
-          <a class="btn btn--green" href="mailto:example@example.com?subject=Contacto%20desde%20CV%20web">Contactar →</a>
+          <a class="btn btn--green" href="mailto:example@example.com">Contactar →</a>
           <a class="btn btn--ghost" href="#sobre-mi">Ver más</a>
         </div>
       </div>
     </section>
 
-    <!-- SOBRE MI -->
+    <!-- SOBRE MÍ -->
     <section id="sobre-mi" class="section fade">
       <div class="container">
         <h2 class="section__title">Sobre mí</h2>
         <p class="muted">
-          Plantilla genérica: describí tu experiencia, enfoque y lo que te diferencia.
+          Más de 10 años integrando <strong>infraestructura</strong>, <strong>seguridad informática resiliente</strong> y
+          <strong>desarrollo de software</strong>. Enfocado en continuidad operativa y eficiencia de recursos.
         </p>
-        <p class="muted">Ej: Especialista en infraestructura y seguridad, enfoque en continuidad y automatización.</p>
+        <p class="muted">Me apasiona construir sistemas que no solo funcionen... sino que resistan. ⚙️</p>
       </div>
     </section>
 
@@ -76,90 +64,50 @@
       <div class="container">
         <h2 class="section__title">Stack Tecnológico</h2>
         <div class="grid">
-          <article class="card fade">
-            <h3>Infraestructura</h3>
-            <p>Proxmox · VMware · Linux · Windows Server</p>
-          </article>
-          <article class="card fade">
-            <h3>Seguridad</h3>
-            <p>Firewalls · VPN · Hardening · DRP</p>
-          </article>
-          <article class="card fade">
-            <h3>Desarrollo</h3>
-            <p>Python · C# · Bash · SQL</p>
-          </article>
-          <article class="card fade">
-            <h3>Automatización</h3>
-            <p>Scripting · Bots · Monitoreo</p>
-          </article>
+          <article class="card fade"><h3>Infraestructura</h3><p>Proxmox · VMware · Linux · Windows Server</p></article>
+          <article class="card fade"><h3>Seguridad</h3><p>Firewalls · VPN · Hardening · DRP/BCP</p></article>
+          <article class="card fade"><h3>Desarrollo</h3><p>Python · C# · PHP · SQL</p></article>
+          <article class="card fade"><h3>Automatización</h3><p>Bash · PowerShell · Telegram Bots</p></article>
         </div>
       </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" class="section fade">
+    <!-- CLIENTES -->
+    <section id="clientes" class="section section--alt fade">
       <div class="container">
-        <h2 class="section__title">Servicios</h2>
+        <h2 class="section__title">Clientes & Proyectos</h2>
+        <p class="muted">
+          Algunas empresas e instituciones que confiaron en mis habilidades para optimizar su infraestructura,
+          seguridad informática y automatización de procesos.
+        </p>
+
         <div class="grid">
           <article class="card fade">
-            <h3>Infraestructura</h3>
-            <p>Diseño y operación de entornos virtualizados y backups.</p>
+            <h3>Empresa Ejemplo A</h3>
+            <p>Infraestructura virtualizada, respaldo automatizado y seguridad de red.</p>
           </article>
           <article class="card fade">
-            <h3>Ciberseguridad</h3>
-            <p>Evaluaciones, hardening, y respuesta a incidentes.</p>
+            <h3>Empresa Ejemplo B</h3>
+            <p>Consultoría IT, segmentación VLAN, configuración de firewalls y VPNs.</p>
           </article>
           <article class="card fade">
-            <h3>Redes</h3>
-            <p>Config. de routers, VLANs y VPNs.</p>
+            <h3>Startup Ejemplo</h3>
+            <p>Automatización de reportes con Python y paneles web internos.</p>
           </article>
           <article class="card fade">
-            <h3>Automatización</h3>
-            <p>Scripting, despliegues y herramientas internas.</p>
+            <h3>Proyecto Personal</h3>
+            <p>Desarrollo de sistema de monitoreo y alertas con Observium + Telegram.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCIA (ejemplo) -->
-    <section id="experiencia" class="section section--alt fade">
-      <div class="container">
-        <h2 class="section__title">Experiencia</h2>
-        <div class="timeline">
-          <div class="tl-item fade">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <h3>Empresa Ejemplo — Rol Ejemplo</h3>
-              <span class="when">2020 – Presente</span>
-              <ul>
-                <li>Descripción breve del rol y logros.</li>
-                <li>Proyecto destacado y métricas (ej: reducción de MTTR).</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="tl-item fade">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <h3>Proyecto Personal — Demo</h3>
-              <span class="when">2015 – Presente</span>
-              <ul>
-                <li>Pequeña descripción del proyecto.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISITOR CONSOLE (ejemplo interactivo) -->
+    <!-- VISITOR CONSOLE -->
     <section id="console" class="section fade">
       <div class="container terminal">
         <h2 class="section__title">Visitor Console</h2>
         <pre id="terminalOutput">[ Initializing console... ]</pre>
-        <div style="margin-top:10px">
-          <button id="refreshConsole" class="btn">↻ Refresh Info</button>
-        </div>
+        <button id="refreshConsole" class="btn" style="margin-top:12px;">↻ Refresh Info</button>
       </div>
     </section>
 
@@ -167,24 +115,19 @@
     <section id="contacto" class="section fade">
       <div class="container">
         <h2 class="section__title">Contacto</h2>
-        <div class="contact">
-          <p>Usá el enlace para abrir un cliente de correo con un mensaje pre-armado.</p>
-          <a class="btn btn--green big" href="mailto:example@example.com?subject=Contacto%20desde%20CV%20web">
-            ✉️ Enviar correo
-          </a>
-          <div class="links">
-            <a href="mailto:example@example.com">example@example.com</a>
-            <a href="https://github.com/example" target="_blank">GitHub</a>
-            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-          </div>
+        <p>¿Hablamos? Escribime o cloná este proyecto en tu GitHub para adaptarlo.</p>
+        <a class="btn btn--green big" href="mailto:example@example.com">✉️ Enviar correo</a>
+        <div class="links">
+          <a href="mailto:example@example.com">example@example.com</a>
+          <a href="https://github.com/example" target="_blank">GitHub</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer class="footer fade">
-    <small>© <span id="year"></span> YOUR_NAME — Template</small>
+    <small>© <span id="year"></span> CV Template — by Facundo Camacho</small>
   </footer>
 
   <script src="matrix.js"></script>
